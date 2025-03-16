@@ -43,14 +43,14 @@ namespace Updater::Data
         /// <returns>See std::string::compare docs.</returns>
         static int icompare(const Path& lhs, const Path& rhs)
         {
-            auto a = lhs.wstring();
-            std::transform(a.begin(), a.end(), a.begin(), [](wint_t c) {
-                return std::towupper(c);
+            auto a = lhs.string();
+            std::transform(a.begin(), a.end(), a.begin(), [](char8_t c) {
+                return std::toupper(c);
                 });
 
-            auto b = rhs.wstring();
-            std::transform(b.begin(), b.end(), b.begin(), [](wint_t c) {
-                return std::towupper(c);
+            auto b = rhs.string();
+            std::transform(b.begin(), b.end(), b.begin(), [](char8_t c) {
+                return std::toupper(c);
                 });
 
             return a.compare(b);
